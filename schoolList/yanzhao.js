@@ -3,22 +3,22 @@ const baseUrl = 'https://yz.chsi.com.cn'
 const Utils = require('../Utils/Utils')
 // getNewsList()
 module.exports = {
- main: async () => {
-    let newsListOld = await getNewsList(baseUrl)
-    let compareTimes = 0
-    while(1){
-        await Utils.sleep(5000)
-        let newsListNew = await getNewsList(baseUrl)
-        let diffNews = Utils.compareNewsList(newsListNew,newsListOld)
-        if(diffNews.length != 0){
-            newsListOld = newsListNew
-            console.log(diffNews)
-        }else{
-            compareTimes ++ 
-            console.log(`研招网已对比${compareTimes}次，暂未发现有新动态`)
+    main: async () => {
+        let newsListOld = await getNewsList(baseUrl)
+        let compareTimes = 0
+        while(1){
+            await Utils.sleep(5000)
+            let newsListNew = await getNewsList(baseUrl)
+            let diffNews = Utils.compareNewsList(newsListNew,newsListOld)
+            if(diffNews.length != 0){
+                newsListOld = newsListNew
+                console.log(diffNews)
+            }else{
+                compareTimes ++ 
+                console.log(`研招网已对比${compareTimes}次，暂未发现有新动态`)
+            }
         }
     }
-}
 }
 async function getNewsList(url) {
     let html = await Utils.getHtml(url)

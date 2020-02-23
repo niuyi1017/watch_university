@@ -1,5 +1,4 @@
 const axios = require('axios')
-
 module.exports = {
     sleep : async (time) => {
         return new Promise((resolve,reject) => {
@@ -21,7 +20,4 @@ module.exports = {
         }
         return result
     },
-    
-
-    
 }

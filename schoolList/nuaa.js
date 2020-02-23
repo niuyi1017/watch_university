@@ -11,7 +11,6 @@ module.exports = {
         while (1) {
             await Utils.sleep(5000)
             let newsListNew = await getNewsList(url)
-            console.log(newsListNew)
             let diffNews = Utils.compareNewsList(newsListNew, newsListOld)
             if (diffNews.length != 0) {
                 newsListOld = newsListNew
