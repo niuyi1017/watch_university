@@ -4,7 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon app"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,19 @@
   "bugs": {
     "url": "https://github.com/niuyi1017/watch_university/issues"
   },
-  "homepage": "https://github.com/niuyi1017/watch_university#readme"
+  "homepage": "https://github.com/niuyi1017/watch_university#readme",
+  "dependencies": {
+    "@koa/router": "^8.0.8",
+    "axios": "^0.19.2",
+    "cheerio": "^1.0.0-rc.3",
+    "glob": "^7.1.6",
+    "koa": "^2.11.0",
+    "koa-bodyparser": "^4.2.1",
+    "koa-compose": "^4.1.0",
+    "koa-logger": "^3.2.1",
+    "koa-router": "^8.0.8"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  }
 }
