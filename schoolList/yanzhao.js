@@ -3,27 +3,31 @@ const baseUrl = 'https://yz.chsi.com.cn'
 const Utils = require('../Utils/Utils')
 // getNewsList()
 module.exports = {
-    main: async () => {
-        let newsListOld = await getNewsList(baseUrl)
-        let compareTimes = 0
-        while(1){
-            await Utils.sleep(5000)
-            let newsListNew = await getNewsList(baseUrl)
+    main: () => {
+        return getNewsList(baseUrl)
+        
+        // let newsListOld = await getNewsList(baseUrl)
+        // let compareTimes = 0
+        // while(1){
+        //     await Utils.sleep(5000)
+        //     let newsListNew = await getNewsList(baseUrl)
 
-            console.log(newsListNew)
-            let diffNews = Utils.compareNewsList(newsListNew,newsListOld)
-            if(diffNews.length != 0){
-                newsListOld = newsListNew
-                console.log(diffNews)
-            }else{
-                compareTimes ++ 
-                console.log(`研招网已对比${compareTimes}次，暂未发现有新动态`)
-            }
-        }
+        //     console.log(newsListNew)
+        //     let diffNews = Utils.compareNewsList(newsListNew,newsListOld)
+        //     if(diffNews.length != 0){
+        //         newsListOld = newsListNew
+        //         console.log(diffNews)
+        //     }else{
+        //         compareTimes ++ 
+        //         console.log(`研招网已对比${compareTimes}次，暂未发现有新动态`)
+        //     }
+        // }
     }
 }
 async function getNewsList(url) {
+    console.log("研招网1")
     let html = await Utils.getHtml(url)
+    console.log("研招网2")
     let $ = cheerio.load(html)
     let $as = $('.index-hot a')
     let ret = []
@@ -45,4 +49,5 @@ async function getNewsList(url) {
         ret.push(node)
     }
     return ret
+    
 }

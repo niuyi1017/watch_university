@@ -2,7 +2,7 @@
 const glob = require('glob')
 const { resolve } = require('path')
 
-initSchoolList = () => {
+initSchoolList = async () => {
   let schools = [];
   glob.sync(resolve(__dirname, './', '**/*.js'))
     .filter(value => (value.indexOf('index.js') === -1))
@@ -10,8 +10,8 @@ initSchoolList = () => {
       schools.push(require(school).main())
     })
   
-  console.log(schools)
-  // return compose(routers)
+  return schools
+ 
 }
-initSchoolList()
-// module.exports = registerRouter
+// initSchoolList()
+module.exports = initSchoolList()
