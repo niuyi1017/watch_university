@@ -1,0 +1,19 @@
+{
+  "name": "watch_university",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/niuyi1017/watch_university.git"
+  },
+  "author": "niuxinyu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/niuyi1017/watch_university/issues"
+  },
+  "homepage": "https://github.com/niuyi1017/watch_university#readme"
+}
