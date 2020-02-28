@@ -26,26 +26,30 @@ module.exports = {
 }
 
 async function getNewsList(url) {
-    console.log('nuaa run1')
-    let html = await Utils.getHtml(url)
-    // console.log('nuaa run2')
-    let $ = cheerio.load(html)
-    let $trs = $('#news_list > tbody > tr')
-    let ret = []
-    for (let i = 0; i < $trs.length; i++) {
-        let innerTr = $($trs[i]).find('tr')
-        let tds = $(innerTr).find('td')
-        let td1 = $(tds[1])
-        let url = $(td1.find('a')[0]).attr('href')
-        let title = $(tds[1]).text()
-        let time = $(tds[2]).text()
-        let node = {
-            url: baseUrl + url,
-            title,
-            time
+    return new Promise((resolve, reject) => {
+        console.log('nuaa run1')
+        let html =  Utils.getHtml(url)
+        console.log('nuaa run2')
+        let $ = cheerio.load(html)
+        let $trs = $('#news_list > tbody > tr')
+        let ret = []
+        for (let i = 0; i < $trs.length; i++) {
+            let innerTr = $($trs[i]).find('tr')
+            let tds = $(innerTr).find('td')
+            let td1 = $(tds[1])
+            let url = $(td1.find('a')[0]).attr('href')
+            let title = $(tds[1]).text()
+            let time = $(tds[2]).text()
+            let node = {
+                url: baseUrl + url,
+                title,
+                time
+            }
+            ret.push(node)
         }
-        ret.push(node)
-    }
-    // return ret
-    return new Error("粗大事了！")
+        // return ret
+        console.log(ret)
+        return new Error("粗大事了！")
+    })
+   
 }
