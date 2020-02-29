@@ -28,7 +28,7 @@ module.exports = {
 async function getNewsList(url) {
     return new Promise((resolve, reject) => {
         console.log('nuaa run1')
-        let html =  Utils.getHtml(url)
+        let html = await Utils.getHtml(url)
         console.log('nuaa run2')
         let $ = cheerio.load(html)
         let $trs = $('#news_list > tbody > tr')
