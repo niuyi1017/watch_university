@@ -19,7 +19,7 @@
   "homepage": "https://github.com/niuyi1017/watch_university#readme",
   "dependencies": {
     "@koa/router": "^8.0.8",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "cheerio": "^1.0.0-rc.3",
     "glob": "^7.1.6",
     "koa": "^2.11.0",
